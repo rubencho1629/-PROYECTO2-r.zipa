@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Menú de la Heladería</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .menu-container {
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+        .menu-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product h3 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .product p {
+            font-size: 1em;
+            color: #666;
+            margin: 5px 0;
+        }
+        .product-price {
+            font-size: 1.2em;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="menu-container">
+    <h1 class="menu-title">Menú de la Heladería</h1>
+    {% for producto in productos %}
+    <div class="product">
+        <h3>{{ producto.nombre }}</h3>
+        <p>Precio: <span class="product-price">{{ producto.precio_publico }} COP</span></p>
+        <p>Costo: {{ producto.calcular_costo() }} COP</p>
+        <p>Rentabilidad: {{ producto.calcular_rentabilidad() }} COP</p>
+        <p>Sabores: {{ ", ".join([ing.sabor for ing in producto.ingredientes if hasattr(ing, 'sabor')]) }}</p>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

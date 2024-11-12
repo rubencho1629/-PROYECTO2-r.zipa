@@ -1,0 +1,63 @@
+# Entornos virtuales
+.venv/
+env/
+venv/
+ENV/
+__pycache__/
+*.py[cod]
+
+# Configuración específica de la IDE
+.idea/
+.vscode/
+
+# Archivos de configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de entorno
+.env
+
+# Archivos de bases de datos
+*.sqlite3
+*.db
+
+# Archivos de logs
+*.log
+
+# Archivos de caché
+*.pyc
+*.pyo
+
+# Archivos de compilación
+build/
+dist/
+*.egg-info/
+
+# Archivos de test y cobertura de test
+htmlcov/
+.coverage
+.tox/
+
+# Archivos creados por Flask/SQLAlchemy
+instance/
+
+# Archivos de configuración generados por pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Archivos de configuración de herramientas de documentación
+docs/_build/
+
+# Archivos temporales de editor
+*.swp
+*.swo
+*~
+
+# Archivos de configuración de Yarn o Node (si los usas en el frontend)
+node_modules/
+yarn.lock
+
+# Archivos estáticos generados
+app/static/css/
+app/static/js/
+app/static/images/
