@@ -1,6 +1,8 @@
-from flask import Blueprint, jsonify, render_template
+from flask import Blueprint, jsonify, render_template, request
 
 from app import db
+from app.models.ingrediente import Ingrediente
+from app.models.producto import Producto
 from app.services.heladeria import Heladeria
 from app.models.producto_vendido import ProductoVendido
 
@@ -64,3 +66,22 @@ def eliminar_venta(id):
         return jsonify({"message": "Venta eliminada exitosamente"}), 200
     else:
         return jsonify({"error": "Venta no encontrada"}), 404
+
+@heladeria_bp.route('/crear_producto', methods=['POST'])
+def crear_producto():
+    data = request.get_json()
+    nombre = data.get("nombre")
+    precio_publico = data.get("precio_publico")
+    ingredientes_ids = data.get("ingredientes", [])
+
+    # Crear el nuevo producto
+    nuevo_producto = Producto(nombre=nombre, precio_publico=precio_publico)
+
+    # Agregar ingredientes al producto
+    ingredientes = Ingrediente.query.filter(Ingrediente.id.in_(ingredientes_ids)).all()
+    nuevo_producto.ingredientes.extend(ingredientes)
+
+    db.session.add(nuevo_producto)
+    db.session.commit()
+
+    return jsonify({"message": "Producto creado exitosamente"}), 201

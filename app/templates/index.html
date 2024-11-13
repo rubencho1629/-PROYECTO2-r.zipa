@@ -86,10 +86,50 @@
             <tbody id="productos-vendidos-table"></tbody>
         </table>
     </div>
+
+    <!-- Formulario para crear un nuevo producto -->
+    <div id="crear-producto-section" class="mt-5">
+        <h2>Crear Nuevo Producto</h2>
+        <form id="crear-producto-form">
+            <div class="mb-3">
+                <label for="nombreProducto" class="form-label">Nombre del Producto</label>
+                <input type="text" class="form-control" id="nombreProducto" required>
+            </div>
+            <div class="mb-3">
+                <label for="precioProducto" class="form-label">Precio Público</label>
+                <input type="number" class="form-control" id="precioProducto" required>
+            </div>
+            <div class="mb-3">
+                <label for="ingredientesProducto" class="form-label">Selecciona Ingredientes</label>
+                <select multiple class="form-control" id="ingredientesProducto">
+                    <!-- Opciones de ingredientes se cargarán aquí dinámicamente -->
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary" onclick="crearProducto()">Crear Producto</button>
+        </form>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
+    document.addEventListener("DOMContentLoaded", cargarIngredientes);
+
+    function cargarIngredientes() {
+        axios.get('/heladeria/ingredientes')
+            .then(response => {
+                const ingredientes = response.data;
+                const ingredientesSelect = document.getElementById("ingredientesProducto");
+                ingredientesSelect.innerHTML = '';
+                ingredientes.forEach(ingrediente => {
+                    const option = document.createElement("option");
+                    option.value = ingrediente.id;
+                    option.text = ingrediente.nombre;
+                    ingredientesSelect.appendChild(option);
+                });
+            })
+            .catch(error => console.error("Error al cargar ingredientes:", error));
+    }
+
     function mostrarProductos() {
         document.getElementById('productos-section').style.display = 'block';
         document.getElementById('ingredientes-section').style.display = 'none';
@@ -226,6 +266,65 @@
         });
     }
 
+    function crearProducto() {
+        const nombre = document.getElementById("nombreProducto").value.trim();
+        const precio = parseFloat(document.getElementById("precioProducto").value);
+        const ingredientes = Array.from(document.getElementById("ingredientesProducto").selectedOptions)
+            .map(option => parseInt(option.value));
+
+        if (!nombre) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Campo obligatorio',
+                text: 'Por favor, ingresa el nombre del producto.'
+            });
+            return;
+        }
+
+        if (!precio || isNaN(precio) || precio <= 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Campo obligatorio',
+                text: 'Por favor, ingresa un precio válido para el producto.'
+            });
+            return;
+        }
+
+        if (ingredientes.length === 0) {
+            Swal.fire({
+                icon: 'warning',
+                title: 'Campo obligatorio',
+                text: 'Por favor, selecciona al menos un ingrediente.'
+            });
+            return;
+        }
+
+        axios.post('/heladeria/crear_producto', {
+            nombre: nombre,
+            precio_publico: precio,
+            ingredientes: ingredientes
+        })
+            .then(response => {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Producto Creado',
+                    text: response.data.message
+                });
+                document.getElementById("crear-producto-form").reset(); // Limpiar el formulario
+                cargarIngredientes(); // Actualizar la lista de ingredientes en el formulario
+            })
+            .catch(error => {
+                let mensajeError = "Error al crear el producto";
+                if (error.response && error.response.data && error.response.data.error) {
+                    mensajeError = error.response.data.error;
+                }
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: mensajeError
+                });
+            });
+    }
 
     function mostrarMensaje(mensaje, tipo) {
         const mensajeDiv = document.getElementById("mensaje");
@@ -237,4 +336,3 @@
 </script>
 </body>
 </html>
-``
