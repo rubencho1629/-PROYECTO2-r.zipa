@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9aaa7d3e-a57f-4b5c-bd6a-f07dcba55546" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/heladeria_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/heladeria_controller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="9aaa7d3e-a57f-4b5c-bd6a-f07dcba55546" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,7 +96,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731356054396</updated>
       <workItem from="1731356066757" duration="3000" />
-      <workItem from="1731446620969" duration="19513000" />
+      <workItem from="1731446620969" duration="19985000" />
     </task>
     <servers />
   </component>

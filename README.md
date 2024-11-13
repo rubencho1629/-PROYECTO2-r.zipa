@@ -62,7 +62,7 @@ Este proyecto es una aplicación de gestión de una heladería construida con Fl
     flask run
     ```
 
-3. Accede a la aplicación en tu navegador en `http://127.0.0.1:5000`.
+3. Accede a la aplicación en tu navegador en `http://127.0.0.1:5000/heladeria/page`.
 
 ## Estructura del Proyecto
 
