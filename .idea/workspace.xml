@@ -5,23 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aaa7d3e-a57f-4b5c-bd6a-f07dcba55546" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/controllers/heladeria_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/test_heladeria.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/ProyectoHeladeria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoHeladeria.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/models/producto_vendido.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controlllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controlllers/heladeria_controller.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/heladeria.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/heladeria.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/heladeria_controller.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/heladeria_controller.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/ingrediente.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ingrediente.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/producto.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/producto.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/models/producto_ingrediente.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/producto_ingrediente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/heladeria.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/heladeria.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test_heladeria.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/test_heladeria.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731356054396</updated>
       <workItem from="1731356066757" duration="3000" />
-      <workItem from="1731446620969" duration="12447000" />
+      <workItem from="1731446620969" duration="18237000" />
     </task>
     <servers />
   </component>

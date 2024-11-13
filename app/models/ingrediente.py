@@ -9,3 +9,7 @@ class Ingrediente(db.Model):
     calorias = db.Column(db.Integer, nullable=False)
     inventario = db.Column(db.Integer, nullable=False)
     es_vegetariano = db.Column(db.Boolean, nullable=False)
+
+    def reabastecer(self, cantidad=10):
+        """Incrementa el inventario en una cantidad específica."""
+        self.inventario += cantidad

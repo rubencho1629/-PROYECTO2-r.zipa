@@ -1,6 +1,7 @@
 from app.config import db
 from app.models.ingrediente import Ingrediente
 from app.models.producto import Producto
+from app.models.producto_vendido import ProductoVendido
 
 class Heladeria:
 
@@ -30,18 +31,31 @@ class Heladeria:
 
     @staticmethod
     def vender_producto(nombre_producto):
-        """Intenta vender un producto y actualiza el inventario de ingredientes."""
+        """Intenta vender un producto y registra la venta en productos_vendidos."""
         producto = Producto.query.filter_by(nombre=nombre_producto).first()
         if not producto:
-            return False, "Producto no encontrado"
+            return "Producto no encontrado"
 
-        # Verificar inventario de ingredientes
+        # Verificar inventario de ingredientes y reabastecer si es necesario
         for ingrediente in producto.ingredientes:
             if ingrediente.inventario <= 0:
-                return False, f"No hay suficiente inventario de {ingrediente.nombre}"
+                ingrediente.reabastecer(10)
+                db.session.commit()
 
-        # Reducir inventario
+            if ingrediente.inventario <= 0:
+                raise ValueError(ingrediente.nombre)
+
+        # Reducir inventario de ingredientes para completar la venta
         for ingrediente in producto.ingredientes:
             ingrediente.inventario -= 1
         db.session.commit()
-        return True, f"Producto {nombre_producto} vendido exitosamente"
+
+        # Registrar la venta en productos_vendidos
+        venta = ProductoVendido(
+            producto_id=producto.id,
+            precio_vendido=producto.precio_publico
+        )
+        db.session.add(venta)
+        db.session.commit()
+
+        return "¡Vendido!"
