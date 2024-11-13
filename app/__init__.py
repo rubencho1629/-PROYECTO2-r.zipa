@@ -1,24 +1,16 @@
-import os
 from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from dotenv import load_dotenv
+from app.config import Config, db
+from app.controllers.heladeria_controller import heladeria_bp
 
-# Cargar variables de entorno desde .env
-load_dotenv()
+def create_app():
+    # Crear la aplicación Flask
+    app = Flask(__name__)
+    app.config.from_object(Config)
 
-# Crear la aplicación Flask
-app = Flask(__name__)
+    # Inicializar SQLAlchemy con la aplicación
+    db.init_app(app)
 
-# Configuración de la base de datos
-USER_DB = os.getenv('USER_DB')
-PASS_DB = os.getenv('PASS_DB')
-URL_DB = os.getenv('URL_DB')
-NAME_DB = os.getenv('NAME_DB')
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{USER_DB}:{PASS_DB}@{URL_DB}/{NAME_DB}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    # Registrar el blueprint de heladeria con el prefijo /heladeria
+    app.register_blueprint(heladeria_bp, url_prefix='/heladeria')
 
-# Inicializar SQLAlchemy
-db = SQLAlchemy(app)
-
-# Importar controladores
-#from .controllers import controllers
+    return app

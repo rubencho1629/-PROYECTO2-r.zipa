@@ -5,27 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9aaa7d3e-a57f-4b5c-bd6a-f07dcba55546" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ProyectoHeladeria.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/git_toolbox_blame.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controlllers/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/controlllers/heladeria_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/heladeria.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/ingrediente.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/producto.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/producto_ingrediente.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/heladeria_controller.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/test_heladeria.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/ProyectoHeladeria.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ProyectoHeladeria.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controlllers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controlllers/heladeria_controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/heladeria.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/heladeria.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ingrediente.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ingrediente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/producto.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/producto.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/producto_ingrediente.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/producto_ingrediente.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +39,31 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1731451990" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1731451989" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -59,7 +80,7 @@
   "keyToString": {
     "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "H:/CursosPython/CursoPyhonUniAndes/Modulo2/ProyectoHeladeria",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -71,7 +92,9 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="H:\CursosPython\CursoPyhonUniAndes\Modulo2\ProyectoHeladeria\app\services" />
       <recent name="H:\CursosPython\CursoPyhonUniAndes\Modulo2\ProyectoHeladeria\app" />
+      <recent name="H:\CursosPython\CursoPyhonUniAndes\Modulo2\ProyectoHeladeria\app\models" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -91,7 +114,7 @@
       <option name="presentableId" value="Default" />
       <updated>1731356054396</updated>
       <workItem from="1731356066757" duration="3000" />
-      <workItem from="1731446620969" duration="4676000" />
+      <workItem from="1731446620969" duration="12447000" />
     </task>
     <servers />
   </component>

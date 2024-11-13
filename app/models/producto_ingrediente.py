@@ -1,4 +1,4 @@
-from .. import db
+from app.config import db
 
 producto_ingrediente = db.Table('producto_ingrediente',
                                 db.Column('producto_id', db.Integer, db.ForeignKey('productos.id'), primary_key=True),
