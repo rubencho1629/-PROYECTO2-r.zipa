@@ -1,0 +1,102 @@
+CREATE DATABASE heladeria;
+
+use heladeria
+
+CREATE TABLE ingredientes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    precio FLOAT NOT NULL,
+    calorias INT NOT NULL,
+    inventario INT NOT NULL,
+    es_vegetariano BOOLEAN NOT NULL
+);
+
+CREATE TABLE productos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    precio_publico FLOAT NOT NULL
+);
+CREATE TABLE producto_ingrediente (
+    producto_id INT,
+    ingrediente_id INT,
+    PRIMARY KEY (producto_id, ingrediente_id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id),
+    FOREIGN KEY (ingrediente_id) REFERENCES ingredientes(id)
+);
+INSERT INTO ingredientes (nombre, precio, calorias, inventario, es_vegetariano) VALUES
+('Fresa', 2000, 50, 10, TRUE),
+('Chocolate', 1000, 150, 15, TRUE),
+('Leche', 500, 100, 20, FALSE);
+
+
+INSERT INTO bases (id, sabor) VALUES
+(1, 'Dulce'),  -- Fresa
+(2, 'Amargo'); -- Chocolate
+
+INSERT INTO complementos (id) VALUES
+(3); -- Leche
+
+
+INSERT INTO productos (nombre, precio_publico) VALUES
+('Copa de Fresa', 7500);
+
+
+INSERT INTO producto_ingrediente (producto_id, ingrediente_id) VALUES
+(1, 1),  -- Relacionar Copa de Fresa con Fresa
+(1, 2),  -- Relacionar Copa de Fresa con Chocolate
+(1, 3);  -- Relacionar Copa de Fresa con Leche
+
+
+CREATE TABLE productos_vendidos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    producto_id INT NOT NULL,
+    fecha_venta DATETIME DEFAULT CURRENT_TIMESTAMP,
+    precio_vendido FLOAT NOT NULL,
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
+);
+
+
+-- Tabla ingredientes
+INSERT INTO ingredientes (nombre, precio, calorias, inventario, es_vegetariano) VALUES
+('Fresa', 200, 30, 20, TRUE),
+('Chocolate', 300, 100, 15, TRUE),
+('Leche', 150, 50, 25, FALSE),
+('Mango', 250, 40, 10, TRUE),
+('Plátano', 100, 60, 18, TRUE),
+('Crema', 200, 80, 22, FALSE),
+('Galleta', 120, 150, 20, TRUE),
+('Almendra', 180, 100, 12, TRUE),
+('Nuez', 250, 130, 10, TRUE),
+('Vainilla', 200, 50, 15, TRUE);
+
+-- Tabla productos
+INSERT INTO productos (nombre, precio_publico) VALUES
+('Copa de Fresa', 700),
+('Malteada de Chocolate', 800),
+('Copa de Mango', 750),
+('Batido de Plátano', 650),
+('Sundae de Vainilla', 850),
+('Copa de Almendra', 900),
+('Malteada de Nuez', 950),
+('Sundae de Chocolate', 1000),
+('Batido de Fresa', 750),
+('Copa de Galleta', 800);
+
+
+select * from producto_ingrediente
+
+-- Tabla intermedia producto_ingrediente
+INSERT INTO producto_ingrediente (producto_id, ingrediente_id) VALUES
+(1, 1), (1, 6),
+(2, 2), (2, 3),
+(3, 4), (3, 6),
+(4, 5), (4, 3),
+(5, 10), (5, 6),
+(6, 8), (6, 6),
+(7, 9), (7, 3),
+(8, 2), (8, 7),
+(9, 1), (9, 3),
+(10, 7), (10, 10)
+ON DUPLICATE KEY UPDATE ingrediente_id = VALUES(ingrediente_id);
+
+
